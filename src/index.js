@@ -3,8 +3,8 @@ const express = require('express');
 const cors = require('cors');
 const db = require('../src/db');  // Ajusta la ruta según la ubicación de tu archivo db.js
 const app = express();
-// const userRoutes = require('./routes/routes.js');
-const { createAccount, getUserById,getUserByEmail,deleteUserById,deleteUserByEmail,getAllUser } = require('./controller/userController.js')
+const routes = require('./routes/routes.js');
+// const { createAccount, getUserById,getUserByEmail,deleteUserById,deleteUserByEmail,getAllUser } = require('./controller/userController.js')
 const corsOptions = {
   origin: 'http://localhost:3001', // Reemplaza con tu origen permitido
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
@@ -22,12 +22,14 @@ app.use((err, req, res, next) => {
 
 
 // Ruta para manejar la creación de cuentas de usuario
-app.post('/user/create-account', createAccount);
-app.get('/user/:id', getUserById);
-app.get('/user/email/:email', getUserByEmail);
-app.delete('/user/:id', deleteUserById) ;
-app.delete('/user/email/:email', deleteUserByEmail);
-app.get('/users', getAllUser)
+// app.post('/user/create-account', createAccount);
+// app.get('/user/:id', getUserById);
+// app.get('/user/email/:email', getUserByEmail);
+// app.delete('/user/:id', deleteUserById) ;
+// app.delete('/user/email/:email', deleteUserByEmail);
+// app.get('/users', getAllUser)
+
+app.use('/',routes)
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {

@@ -15,3 +15,9 @@ Sigue estos pasos para ejecutar la aplicación:
    ```bash
    npm install 
    npm start
+   
+   2. **Instalación de Dependencias:**
+   ```bash
+   Crear una variable .ENV con la que cuenten sus datos de PostgreSQL
+   Crear una base de datos llamada *Login* 
+   Levantar el servidos
